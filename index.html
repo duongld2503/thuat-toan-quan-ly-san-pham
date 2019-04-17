@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="tensanpham">
+<button id="find" onclick="findSp(arr)">find</button>
+<button id="add" onclick="addSp(arr)">add</button>
+<button id="delete" onclick="deleteSp(arr)">delete</button>
+<button id="change" onclick="changeSp(arr)">change</button>
+<!--<button id="show1" onclick="show(arr)">show</button>-->
+<div id="show"></div>
+<script>
+    // let arr1 = [1,2,3,4,5]
+    // let i = arr1.indexOf(2,4)
+    // arr1.splice(3,1); // xoa bat dau tu phan tu thu 3 va xoa 1 phan tu
+    // console.log(arr1);
+
+    let arr = [];
+
+    function findSp(arr) {
+        let tensp = document.getElementById("tensanpham").value;
+        for (i=0;i<100;i++) {
+            if (tensp === arr[i]) {
+                console.log("da co")
+                break;
+            }
+        }
+    }
+
+    function addSp(arr) {
+        let tensp = document.getElementById("tensanpham").value;
+        arr.push(tensp);
+        console.log(arr);
+        document.getElementById('tensanpham').value ="";
+        document.getElementById('show').innerHTML = "";
+        show(arr)
+    }
+
+
+    function deleteSp(arr) {
+        let name = document.getElementById("tensanpham").value;
+        let j = arr.indexOf(name);
+        arr.splice(j,1);
+        console.log(arr);
+        document.getElementById('show').innerHTML = "";
+        show(arr)
+    }
+
+    function changeSp(arr) {
+        let name = document.getElementById("tensanpham").value;
+        let j = arr.indexOf(name)
+        let nameChanged = prompt("nhap ten thay the");
+        arr[j] = nameChanged;
+        console.log(arr);
+        document.getElementById('show').innerHTML = "";
+        show(arr)
+    }
+
+
+    function show(arr) {
+        for (i = 0; i < arr.length; i++) {
+           document.getElementById("show").innerHTML += "<div>"+ arr[i]+ "</div><br>" ;
+        }
+    }
+
+</script>
+</body>
+</html>
